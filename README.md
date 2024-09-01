@@ -12,6 +12,16 @@
 внешние ссылки на текущий класс (с возможностью перехода);
 property методы класса;
 
+Проверка работы:
+
+1. Клонирование проекта
+
+2. Установка виртуальной среды и requirements
+
+3. Проведение миграции и создание пользователя
+
+4. Запуск сервера
+
 Установка: 
 
 1. Клонирование проект
@@ -21,4 +31,9 @@ property методы класса;
 
 3. Добавление в файл настроек целевого проекта: `INSTALLED_APPS += ["model_showcase.apps.ModelShowcaseConfig"]`
 
-4. Использование: `http://localhost:8000/` как отдельный проект или добавить свой url включив проект
+4. Использование: `http://localhost:8000/` + url включенный в проект
+
+``` python
+if any(installed_app.startswith("model_showcase") for installed_app in settings.INSTALLED_APPS):
+    urlpatterns += [path("model_showcase/", include("model_showcase.urls"))]
+```

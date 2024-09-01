@@ -1,0 +1,30 @@
+<nav class="navbar-with-search navbar flex-md-nowrap p-0">
+    <a class="ml-3 navbar-brand" href="{% url 'model_showcase:home' %}">Главная</a>
+    <div class="input-group py-1 px-2 px-md-5">
+        <form class="search-group group-control form-control"
+              method="get"
+              action="{% url 'model_showcase:search' %}">
+            <div class="input-group">
+                <input class="form-control mr-sm-2 search-input"
+                       type="search"
+                       name="query"
+                       placeholder="Введите имя модели...">
+                <button class="btn btn-outline-light my-2 my-sm-0 search-button"
+                        type="submit">Поиск</button>
+            </div>
+        </form>
+    </div>
+    <div class="ml-auto">
+        {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}" class="d-inline">
+                {% csrf_token %}
+                <button type="submit"
+                        class="btn btn-outline-light my-2 my-sm-0 search-button">Выход</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}"
+               class="btn btn-outline-light my-2 my-sm-0 search-button">Вход</a>
+        {% endif %}
+    </div>
+</nav>
+<br>

@@ -1,0 +1,36 @@
+{% extends "model_showcase/info_model/related/related_list_model.html" %}
+{% block related_model %}
+    <table class="table table-hover table-sm fields_info">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Модель</th>
+                <th scope="col">Тип данных</th>
+                <th scope="col">Название</th>
+                <th scope="col">Связанное поле</th>
+                <th scope="col">Обратная связь</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for field in related_model_list %}
+                {% ifchanged field.two_way_link %}
+                    {% if field.two_way_link %}
+                        <td colspan="100%"
+                            class="table-{{ field.get_contextual_classes }}-nohover text-center">
+                            <b>Взаимосвязанные модели</b>
+                        </td>
+                    {% else %}
+                        <td colspan="100%"
+                            class="table-{{ field.get_contextual_classes }}-nohover text-center">
+                            <b>Внешние ссылки</b>
+                        </td>
+                    {% endif %}
+                {% endifchanged %}
+                <tr>
+                    {% block related_field %}
+                        {{ field.render }}
+                    {% endblock related_field %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock related_model %}

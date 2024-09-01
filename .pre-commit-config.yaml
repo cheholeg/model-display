@@ -1,0 +1,46 @@
+default_language_version:
+    python: python3.12
+fail_fast: false
+
+repos:
+  - repo: local
+    hooks:
+
+#       lint-ры
+      - id: ruff
+        name: ruff linter for Django
+        entry: ruff check
+        language: system
+        types: [python]
+
+#       нельзя коммитить в master/develop
+      - id: no-commit-to-branch
+        name: no-commit-to-branch
+        entry: no-commit-to-branch
+        language: system
+        pass_filenames: false
+        args: [ -b=develop, -b=master ]
+
+#       форматтер
+      - id: djlint-django
+        name: djlint formatting for Django
+        entry: djlint --reformat --profile=django
+        language: system
+        types_or: ['html']
+
+      - id: ruff-format
+        name: ruff formatting for Django
+        entry: ruff format
+        language: system
+        types: [python]
+        args: []
+
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        types: [python]
+        args: [
+            .
+        ]
+        pass_filenames: false

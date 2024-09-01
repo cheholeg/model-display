@@ -1,0 +1,18 @@
+[run]
+branch = True
+omit =
+    venv/*
+    *migrations*
+    *tests*
+    *__init__.py
+    src/*
+
+[report]
+precision=2
+
+[paths]
+source = .
+
+[html]
+directory = artifacts/coverage/
+title = ModelDisplay - покрытие кода тестами

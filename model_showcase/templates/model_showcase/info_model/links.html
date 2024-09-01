@@ -1,0 +1,16 @@
+{% if urls %}
+    <div class="url-info-model col-md-2">
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-secondary">
+                    <b>Ссылки</b>
+                </li>
+                {% for url in urls %}
+                    <li class="list-group-item">
+                        <a href="{{ url.link }}">{{ url.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

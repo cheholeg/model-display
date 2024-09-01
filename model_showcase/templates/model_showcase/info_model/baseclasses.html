@@ -1,0 +1,8 @@
+{% for class in base_models %}
+    {% if class.model_path %}
+        <a href="{{ class.url }}">{{ class.model_name }}</a>
+    {% else %}
+        <span title="абстрактная модель">{{ class.model_name }}</span>
+    {% endif %}
+    {% if not forloop.last %},{% endif %}
+{% endfor %}

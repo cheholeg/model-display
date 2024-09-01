@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static "dist/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "fontawesome6/css/all.min.css" %}" />
+        <link rel="stylesheet" type="text/css" href="{% static "css/showcase_style.css" %}" />
+        <script type="text/javascript" src="{% static "dist/js/jquery-3.2.1.slim.js" %}"></script>
+        <script type="text/javascript" src="{% static "dist/js/bootstrap.bundle.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/clipboard-and-dropdown.js" %}"></script>
+        {% block head %}
+            <title>Отображение информации о модели</title>
+        {% endblock head %}
+    </head>
+    <body>
+        {% include "model_showcase/navbar.html" %}
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>

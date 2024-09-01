@@ -1,0 +1,33 @@
+{% block related_field %}
+    <td>
+        <a href="{{ field.url }}">{{ field.model_name }}</a>
+    </td>
+    <td class="text-nowrap">
+        {{ field.get_field_type }}
+        {% if field.get_possibles %}
+            <a href="#"
+               data-toggle="collapse"
+               role="button"
+               class="navbar-collapse"
+               data-target="#collapseType{{ field.model_name }}-{{ field.get_related_name }}"
+               aria-expanded="false"
+               aria-controls="collapseType{{ field.model_name }}-{{ field.get_related_name }}">
+                <span id="glyphicon-down-{{ field.model_name }}-{{ field.get_related_name }}"
+                      class="glyphToChange glyphicon-down">▼</span>
+                <span id="glyphicon-up-{{ field.model_name }}-{{ field.get_related_name }}"
+                      class="glyphToChange glyphicon-up">▲</span>
+            </a>
+            <div class="collapse no-transition"
+                 id="collapseType{{ field.model_name }}-{{ field.get_related_name }}">
+                <div class="card card-body card-hover">
+                    {% for possible in field.get_possibles %}
+                        {% for key, value in possible.items %}<p class="text-nowrap">{{ key }} - {{ value }}</p>{% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </td>
+    <td>{{ field.verbose_name }}</td>
+    <td>{{ field.get_field_name }}</td>
+    <td>{{ field.get_related_name }}</td>
+{% endblock related_field %}

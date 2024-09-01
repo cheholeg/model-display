@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-header" id="headingField">
+        <h5 class="mb-0">
+            <button class="btn btn-link font-weight-bold collapsed"
+                    data-toggle="collapse"
+                    data-target="#collapseField"
+                    aria-expanded="false"
+                    aria-controls="collapseField">Поля</button>
+        </h5>
+    </div>
+    <div id="collapseField"
+         class="collapse {% if show %}show{% endif %}"
+         aria-labelledby="headingField"
+         data-parent="#accordion">
+        <div class="card-body">
+            <table class="table table-hover table-sm fields_info">
+                <thead class="thead-light ">
+                    <tr>
+                        <th scope="col">Поле</th>
+                        <th scope="col">Тип данных</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Имя поля в БД</th>
+                        <th scope="col">Дополнительная информация</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for field in fields %}<tr class="table-{{ field.get_contextual_classes }}">{{ field.render }}</tr>{% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+{% extends "model_showcase/base.html" %}
+{% block head %}
+    <title>{{ model.model_name }}</title>
+{% endblock head %}
+{% block content %}
+    <div class="info-model row">
+        <div class="name-model ml-3 col-md-7">
+            <h1 class="d-inline word-for-copy">{{ model.model_name }}</h1>
+            <h2 class="d-inline word-for-copy"
+                style="white-space: nowrap"
+                data-text="{{ model.verbose_name }}">
+                ({{ model.baseclasses.render }})
+                —
+                {{ model.verbose_name }}
+            </h2>
+        </div>
+        <div class="dop-info-model col-md-2">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-secondary">
+                        <b>Дополнительная информация</b>
+                    </li>
+                    <li class="list-group-item word-for-copy"
+                        data-text="{{ model.db_table_name }}">
+                        <b>Таблица</b> - {{ model.db_table_name }}
+                    </li>
+                    <li class="list-group-item word-for-copy"
+                        data-text="{{ model.model_path }}">
+                        <b>Полный путь к модели</b> - {{ model.model_path }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{ model.links.render }}
+    </div>
+    <br>
+    <div id="accordion">
+        {{ model.fields.render }}
+        {{ model.property_fields.render }}
+        {% include "model_showcase/info_model/subclasses/subclasses.html" with subclasses=model.subclasses %}
+        {{ model.related_model.render }}
+    </div>
+{% endblock content %}

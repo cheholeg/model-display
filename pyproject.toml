@@ -1,0 +1,57 @@
+[project]
+name = "model_showcase"
+version = "1.0.0"
+authors = [
+  { name='Филиппов Никита"' }]
+description = "Отображение информации о модели"
+requires-python = ">=3.12"
+classifiers = [
+        "Programming Language :: Python :: 3",
+    ]
+dependencies = ["Django<=5.1", "ruff==0.4.1", "djlint==1.34.1"]
+[tool.setuptools.packages.find]
+exclude = ["venv*"]
+namespaces = false
+[tool.ruff]
+force-exclude = true
+line-length = 100  # Изменение допустимой длины строки для залома Lint
+extend-exclude = [".venv", ".build", "manage.py"]
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN101",  # Отсутствует тип self -- будет удалено в след ревизиях --
+    "ANN102",  # Отсутствует тип cls -- будет удалено в след ревизиях --
+    "ANN204",  # отсутствует возвращаемый тип-специального-метода
+    "D",  # Проверка docstring-ов
+    "DJ008",  # Модель не определяет метод __str__
+    "FA100",  # Аннотация __future__ перезаписываемого типа; Можно было бы использовать, если перейти на python > 3.10
+    "I001",  # Несортированный импорт
+    "RUF002",  # Неоднозначный символ юникода комментарий
+    "RUF015",  # Ненужное повторяющееся выделение для первого элемента
+    "SLF001",  # Доступ к закрытому участнику
+    "SLOT000",  # Подклассы str должны определять __slots__
+    "COM812",  # formatter советует не включать
+    "ISC001",  # formatter советует не включать
+    "PT009", # assert предпочтительнее self.assertEqual
+]
+fixable = ["ALL"]
+[tool.djlint]
+profile="django"
+ignore="H030,H031"
+[tool.mypy]
+python_version = "3.12"
+strict = true
+exclude = [
+    "media*",
+    "venv*",
+    "env*",
+    "src*",
+    "node_modules*",
+    "build*",
+]
+enable_error_code = [
+    "explicit-override",
+]
+disallow_any_expr = true
+[tool.django-stubs]
+django_settings_module = "model_display.settings"

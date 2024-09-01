@@ -1,0 +1,165 @@
+a, a.list-group-item {
+    color: darkred;
+    font-weight: bold;
+}
+
+.word-for-copy {
+    position: relative;
+}
+
+.word-for-copy:hover .copy-btn {
+    display: inline-block;
+}
+
+h1, h2 {
+    padding: .75rem 1.25rem;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0;
+    font-size: 24px;
+    background-color: transparent;
+    color: darkred;
+    border: none;
+    text-align: center;
+    display: none;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    color: #a00000;
+}
+
+.copy-btn:focus {
+    outline: none;
+}
+
+.copyNotification {
+    position: absolute;
+    padding: 10px 20px;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    background-color: darkred;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.table .card {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.dropdown-with-limit,
+.dropdown-with-limit > .table-enum {
+    min-width: 720px;
+    max-width: 720px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-wrap: break-word;
+}
+
+.show-on-hover:hover .dropdown-menu {
+    display: inline-block;
+    top: 0;
+    left: 95%;
+}
+
+.navbar-collapse[aria-expanded="true"] .glyphicon-down {
+    display: none
+}
+
+.navbar-collapse[aria-expanded="true"] .glyphicon-up {
+    display: inline
+}
+
+.navbar-collapse[aria-expanded="false"] .glyphicon-down {
+    display: inline
+}
+
+.navbar-collapse[aria-expanded="false"] .glyphicon-up {
+    display: none
+}
+
+.table-primary-nohover {
+    background-color: #b8daff;
+}
+
+.table-secondary-nohover {
+    background-color: #d6d8db;
+}
+
+.table-success-nohover {
+    background-color: #c3e6cb;
+}
+
+.table-danger-nohover {
+    background-color: #f5c6cb;
+}
+
+.table-warning-nohover {
+    background-color: #ffeeba;
+}
+
+.table-info-nohover {
+    background-color: #bee5eb;
+}
+
+.table-light-nohover {
+    background-color: #fdfdfe;
+}
+
+.table-dark-nohover {
+    background-color: #c6c8ca;
+}
+
+.navbar-with-search {
+    background-color: #ff7f7f;
+}
+
+.navbar-brand {
+    color: white; /* Белый цвет текста */
+}
+
+.search-group {
+    background-color: #ff7f7f;
+    border-color: #ff7f7f;
+}
+
+.search-input {
+    border: 1px solid #ff4d4d;
+}
+
+.search-button {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.navbar-with-search,
+.search-group {
+    background-color: #ff7f7f;
+    border-color: #ff7f7f;
+}
+
+.card {
+    border: 1px solid #ff4d4d;
+}
+
+.card-header {
+    background-color: #ff7f7f;
+}
+
+.btn-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.card-body {
+    background-color: #ffe6e6;
+}

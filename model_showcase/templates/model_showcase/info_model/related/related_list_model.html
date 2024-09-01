@@ -1,0 +1,22 @@
+{% if related_model_list %}
+    <div class="card">
+        <div class="card-header" id="headingRelated">
+            <h5 class="mb-0">
+                <button class="btn btn-link font-weight-bold collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapseRelated"
+                        aria-expanded="false"
+                        aria-controls="collapseRelated">Связанные модели</button>
+            </h5>
+        </div>
+        <div id="collapseRelated"
+             class="collapse {% if show %}show{% endif %}"
+             aria-labelledby="headingRelated"
+             data-parent="#accordion">
+            <div class="card-body">
+                {% block related_model %}
+                {% endblock related_model %}
+            </div>
+        </div>
+    </div>
+{% endif %}

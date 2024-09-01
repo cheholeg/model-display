@@ -1,0 +1,17 @@
+<div class="property_fields">
+    <td>{{ field.name }}</td>
+    <td>
+        {% if field.verbose_name %}
+            {{ field.verbose_name }}
+        {% else %}
+            Нет данных
+        {% endif %}
+    </td>
+    <td>
+        {% if field.type %}
+            {{ field.type }}
+        {% else %}
+            Нет данных
+        {% endif %}
+    </td>
+</div>

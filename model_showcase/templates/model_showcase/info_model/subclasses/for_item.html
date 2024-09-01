@@ -1,0 +1,12 @@
+{% for item in subclasses %}
+    <ul>
+        <li>
+            <a href="{{ item.url }}">{{ item.model_name }}
+                ({{ item.verbose_name }})
+            </a>
+            {% if item.subclasses %}
+                {% include "model_showcase/info_model/subclasses/for_item.html" with subclasses=item.subclasses %}
+            {% endif %}
+        </li>
+    </ul>
+{% endfor %}

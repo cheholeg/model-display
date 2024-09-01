@@ -1,0 +1,32 @@
+{% extends "model_showcase/base.html" %}
+{% block content %}
+    <table class="table table-hover">
+        <thead class="table-secondary-nohover">
+            <tr>
+                <th scope="col">Модель</th>
+                <th scope="col">Имя</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for model in model_list %}
+                <tr>
+                    <td class="btn-group dropright show-on-hover">
+                        <a href="{{ model.url }}" title="{{ model.model_path }}">{{ model.model_name }}
+                            {% if model.another_link %}
+                                ▷
+                                <div class="dropdown-menu dropdown-with-limit">
+                                    <ul class="list-group">
+                                        {% for link in model.another_link %}
+                                            {% if link %}<a href="{{ link.url }}" class="list-group-item list-group-item-action">{{ link.name }}</a>{% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </a>
+                    </td>
+                    <td>{{ model.verbose_name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

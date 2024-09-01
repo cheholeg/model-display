@@ -1,0 +1,35 @@
+{% extends "model_showcase/info_field/base_field.html" %}
+{% block base_field %}
+    {{ block.super }}
+{% endblock base_field %}
+{% block custom_info %}
+    <td>
+        <div class="btn-group dropleft">
+            <a href="#"
+               class="dropdown-toggle"
+               data-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
+                {% if field.enum_field_model_name %}
+                    {{ field.enum_field_model_name }}
+                {% else %}
+                    Choices (отсутствует имя)
+                {% endif %}
+            </a>
+            <div class="dropdown-menu dropdown-with-limit">
+                <table class="table-bordered table-enum"
+                       id="collapseEnum{{ field.get_field_name }}">
+                    <thead class="table-secondary-nohover">
+                        <tr>
+                            <th scope="col">Поле</th>
+                            <th scope="col">Значение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for enum in field.enum_value %}<tr>{{ enum.render }}</tr>{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </td>
+{% endblock custom_info %}

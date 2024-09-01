@@ -1,0 +1,32 @@
+{% if property_fields %}
+    <div class="card">
+        <div class="card-header" id="headingPropertyField">
+            <h5 class="mb-0">
+                <button class="btn btn-link font-weight-bold collapsed"
+                        data-toggle="collapse"
+                        data-target="#collapsePropertyField"
+                        aria-expanded="false"
+                        aria-controls="collapsePropertyField">Property поля</button>
+            </h5>
+        </div>
+        <div id="collapsePropertyField"
+             class="collapse {% if show %}show{% endif %}"
+             aria-labelledby="headingPropertyField"
+             data-parent="#accordion">
+            <div class="card-body">
+                <table class="table table-sm table-hover property_fields_info">
+                    <thead>
+                        <tr class="table-warning-nohover">
+                            <th scope="col">Поле</th>
+                            <th scope="col">Название</th>
+                            <th scope="col">Тип данных</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for field in property_fields %}<tr>{{ field.render }}</tr>{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endif %}

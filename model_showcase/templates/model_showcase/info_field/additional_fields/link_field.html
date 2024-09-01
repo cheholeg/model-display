@@ -1,0 +1,6 @@
+{% extends "model_showcase/info_field/base_field.html" %}
+{% block custom_info %}
+    <td>
+        <a href="{{ field.url }}">{{ field.model_name }}({{ field.verbose_name }})</a>
+    </td>
+{% endblock custom_info %}

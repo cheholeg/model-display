@@ -1,0 +1,21 @@
+{% if subclasses.subclasses %}
+    <div class="card">
+        <div class="card-header" id="headingSubclasses">
+            <h5 class="mb-0">
+                <button class="btn btn-link font-weight-bold"
+                        data-toggle="collapse"
+                        data-target="#collapseSubclasses"
+                        aria-expanded="false"
+                        aria-controls="collapseSubclasses">Наследники</button>
+            </h5>
+        </div>
+        <div id="collapseSubclasses"
+             class="collapse {% if show == 'subclass' %}show{% endif %}"
+             aria-labelledby="headingSubclasses"
+             data-parent="#accordion">
+            <div class="card-body">
+                {% include "model_showcase/info_model/subclasses/for_item.html" with subclasses=subclasses.subclasses %}
+            </div>
+        </div>
+    </div>
+{% endif %}

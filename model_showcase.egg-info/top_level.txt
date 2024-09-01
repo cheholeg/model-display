@@ -1,3 +1,0 @@
-model_display
-model_showcase
-test_lab

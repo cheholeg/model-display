@@ -16,20 +16,20 @@ if TYPE_CHECKING:
     from model_showcase.info_model import InfoModel
 
 
-@login_required(login_url="login")  # type: ignore[misc]
+@login_required(login_url="model_showcase:login")  # type: ignore[misc]
 def all_model_view(request: WSGIRequest) -> HttpResponse:
     context = find_all_model_list()
     return render(request, "model_showcase/index.html", context)
 
 
-@login_required(login_url="login")  # type: ignore[misc]
+@login_required(login_url="model_showcase:login")  # type: ignore[misc]
 def search_view(request: WSGIRequest) -> HttpResponse:
     query = request.GET.get("query")
     context = find_model_list_by_search_word(query) if query else None
     return render(request, "model_showcase/search.html", context)
 
 
-@login_required(login_url="login")  # type: ignore[misc]
+@login_required(login_url="model_showcase:login")  # type: ignore[misc]
 def get_model_info(request: WSGIRequest) -> HttpResponse:
     model_path = request.GET.get("model")
     show_value = request.GET.get("show")

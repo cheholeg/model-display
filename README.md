@@ -29,7 +29,10 @@ property методы класса;
 2. Установка в проекте для которого необходимо просматривать структуру таблиц:
 `pip install -e file:../model-display`
 
-3. Добавление в файл настроек целевого проекта: `INSTALLED_APPS += ["model_showcase.apps.ModelShowcaseConfig"]`
+3. Добавление в файл настроек целевого проекта:
+``` python
+INSTALLED_APPS += ["model_showcase.apps.ModelShowcaseConfig"]
+```
 
 4. Использование: `http://localhost:8000/` + url включенный в проект
 
